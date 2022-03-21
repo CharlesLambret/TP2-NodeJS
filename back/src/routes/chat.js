@@ -1,4 +1,6 @@
 import { randomUUID } from 'crypto'
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+
 
 /**
  * @typedef {Object} Message
@@ -9,6 +11,12 @@ import { randomUUID } from 'crypto'
 
 /** @type { Message[] } */
 const messages = []
+const date = new Date()
+formatDistanceToNow(date, [options])
+
+JSON.stringify(date)
+
+
 
 /**
  * @param {string} pseudo
@@ -18,6 +26,7 @@ function handleNewMessage(pseudo, body) {
   const message = {
     id: randomUUID(),
     pseudo,
+    date,
     body,
   }
   messages.push(message)
