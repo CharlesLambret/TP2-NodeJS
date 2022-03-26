@@ -11,6 +11,13 @@ export function appendMessage(data) {
   // <span>Hugo</span>
   msgEl.append(pseudoSpan)
 
+// TEST POUR INTRODUIRE LA DATE DANS UN MESSAGE
+
+  const firstdateP = document.createElement('p')
+  firstdateP.textContent = data.firstdate
+  // <p> 28/12/2001 10:10:10 </p>
+  msgEl.append(firstdateP)
+
   const bodyP = document.createElement('p')
   bodyP.textContent = data.body
   // <p>Hello world</p>

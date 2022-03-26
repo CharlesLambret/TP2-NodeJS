@@ -33,10 +33,13 @@ export function initChat() {
   
     const pseudo = messageForm.pseudo.value
     const body = messageForm.body.value
+    const firstdate = messageForm.firstdate
+
 
     if (!pseudo || !body) return
 
-    ws.send(JSON.stringify({ pseudo, body }))
+    ws.send(JSON.stringify({ pseudo, body, firstdate }))
     messageForm.body.value = null
+
   })
 }

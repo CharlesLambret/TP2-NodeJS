@@ -1,4 +1,4 @@
-import { randomUUID } from 'crypto'
+import { randomUUID } from 'crypto';
 
 
 /**
@@ -9,8 +9,16 @@ import { randomUUID } from 'crypto'
  */
 
 /** @type { Message[] } */
-const messages = []
 
+const messages = []
+const firstdate = new Date();
+/*let testdate = firstdate.getTime()
+let testdate1 = firstdate.getDate()
+
+console.log(firstdate.toString());
+console.log(firstdate.getTimezoneOffset());
+console.log(testdate1)
+*/
 
 
 
@@ -18,12 +26,14 @@ const messages = []
 /**
  * @param {string} pseudo
  * @param {string} body
+ * @param {firstdate} firstdate
  */
-function handleNewMessage(pseudo, body) {
+function handleNewMessage(pseudo, body, firstdate) {
   const message = {
     id: randomUUID(),
     pseudo,
     body,
+    firstdate,
   }
   messages.push(message)
   return message
@@ -48,7 +58,7 @@ export async function chatRoutes(app) {
       const data = JSON.parse(message.toString('utf-8'))
       broadcast({
         type: 'NEW_MESSAGE',
-        payload: handleNewMessage(data.pseudo, data.body),
+        payload: handleNewMessage(data.pseudo, data.body, data.firstdate),
       })
     })
   })
