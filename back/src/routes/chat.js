@@ -1,4 +1,6 @@
 import { randomUUID } from 'crypto';
+import { format, formatDistance, formatRelative, subDays } from 'date-fns';
+
 /*const messageForm = document.querySelector('#new-message')*/
 
 /**
@@ -25,7 +27,7 @@ console.log(testdate1)
  * @param {string} body
  */
 function handleNewMessage(pseudo, body) {
-  const now = new Date()
+  const now = format(new Date(), "'Sent at 'hh:mm:ss ")
   const message = {
     id: randomUUID(),
     pseudo: pseudo,

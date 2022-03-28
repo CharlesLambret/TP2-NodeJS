@@ -49,6 +49,8 @@ main .top-space {
 }
 
 .message {
+  display: flex;
+  flex-flow: column;
   width: 60%;
   padding: 12px 18px;
   border-radius: 6px;
@@ -56,12 +58,25 @@ main .top-space {
   margin-bottom: 18px;
 }
 
+/* à changer c'est crado */
+
+.pseudo{
+ margin-bottom: -22px;
+}
+
 .message p {
   font-size: large;
 }
 
 .message span {
-  font-size: small;
+  font-size: medium;
+}
+
+.date{
+  color : red;
+  font-size: medium !important;
+  display:flex;
+  align-self: center;
 }
 
 /* FORM */
