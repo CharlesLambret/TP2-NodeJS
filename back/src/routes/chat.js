@@ -1,5 +1,5 @@
 import { randomUUID } from 'crypto';
-
+/*const messageForm = document.querySelector('#new-message')*/
 
 /**
  * @typedef {Object} Message
@@ -11,7 +11,7 @@ import { randomUUID } from 'crypto';
 /** @type { Message[] } */
 
 const messages = []
-const firstdate = new Date();
+
 /*let testdate = firstdate.getTime()
 let testdate1 = firstdate.getDate()
 
@@ -20,20 +20,17 @@ console.log(firstdate.getTimezoneOffset());
 console.log(testdate1)
 */
 
-
-
-
 /**
  * @param {string} pseudo
  * @param {string} body
- * @param {firstdate} firstdate
  */
-function handleNewMessage(pseudo, body, firstdate) {
+function handleNewMessage(pseudo, body) {
+  const now = new Date()
   const message = {
     id: randomUUID(),
-    pseudo,
-    body,
-    firstdate,
+    pseudo: pseudo,
+    body: body,
+    firstdate: now.toString(),
   }
   messages.push(message)
   return message
@@ -58,8 +55,23 @@ export async function chatRoutes(app) {
       const data = JSON.parse(message.toString('utf-8'))
       broadcast({
         type: 'NEW_MESSAGE',
-        payload: handleNewMessage(data.pseudo, data.body, data.firstdate),
+        payload: handleNewMessage(data.pseudo, data.body),
       })
     })
   })
 }
+// secu chat inch'allah
+  
+/*const pseudo = messageForm.pseudo.value
+const body = messageForm.body.value
+let secupseudo = pseudo.slice(0, 25);
+let secubody = body.slice(0, 240);
+let errormessages = []
+if (pseudo > 25 || pseudo === null) {
+      secupseudo;
+      errormessages.push("Tapez un pseudo valable (entre 1 et 25 caractères).")
+    }
+if (body > 240 || body === null) {
+      secubody;
+      errormessages.push("Veuillez rentrer un message compris entre 0 et 240 caractères.")
+    }*/
