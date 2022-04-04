@@ -12,6 +12,18 @@ export function appendMessage(data) {
   // <span>Hugo</span>
   msgEl.append(pseudoSpan)
   
+  // SUPPRIMER LES MESSAGES
+  const deleteButton = document.createElement('button');
+  msgEl.dataset.id = data.id; 
+  deleteButton.onclick = function (){
+    msgEl.remove();
+  }
+  const deleteImg = document.createElement('img');
+  deleteImg.src="/img/trashicon.svg"
+  deleteButton.append(deleteImg);
+
+  msgEl.append(deleteButton);
+  
   // DIFFERENCIATION DES MESSAGES
   if (data.pseudo === localStorage.getItem("pseudo")) msgEl.classList.add("msgenvoyes");
 // DATE DANS UN MESSAGE
