@@ -11,7 +11,9 @@ export function appendMessage(data) {
   pseudoSpan.textContent = data.pseudo
   // <span>Hugo</span>
   msgEl.append(pseudoSpan)
-
+  
+  // DIFFERENCIATION DES MESSAGES
+  if (data.pseudo === localStorage.getItem("pseudo")) msgEl.classList.add("msgenvoyes");
 // DATE DANS UN MESSAGE
 
   const firstdateP = document.createElement('p')
