@@ -16,5 +16,8 @@
     "eslint-plugin-promise": "^5.2.0",
     "prettier": "^2.6.0",
     "vite": "^2.8.0"
+  },
+  "dependencies": {
+    "darkmode-js": "^1.5.7"
   }
 }
