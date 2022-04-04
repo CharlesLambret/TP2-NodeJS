@@ -73,7 +73,7 @@ main .top-space {
 }
 
 .date{
-  color : red;
+  color : red !important;
   font-size: medium !important;
   display:flex;
   align-self: center;

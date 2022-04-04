@@ -60,10 +60,15 @@ export async function chatRoutes(app) {
       })
     })
   })
+
+  //history
+/*   app.get('/history', (request, reply) => {
+    reply.send(messages) 
+  })*/
 }
-// secu chat inch'allah
-  
-/*const pseudo = messageForm.pseudo.value
+// secu chat inch'allah 
+/*  
+const pseudo = messageForm.pseudo.value
 const body = messageForm.body.value
 let secupseudo = pseudo.slice(0, 25);
 let secubody = body.slice(0, 240);
@@ -75,4 +80,4 @@ if (pseudo > 25 || pseudo === null) {
 if (body > 240 || body === null) {
       secubody;
       errormessages.push("Veuillez rentrer un message compris entre 0 et 240 caractères.")
-    }*/
+    } */
