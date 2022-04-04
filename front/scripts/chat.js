@@ -38,7 +38,7 @@ export function initChat() {
 *///
    
     if (!pseudo || !body) return
-
+    localStorage.setItem("pseudo", pseudo)
     ws.send(JSON.stringify({ pseudo, body }))
     messageForm.body.value = null
 
