@@ -57,7 +57,9 @@ main .top-space {
   border: solid 1px #bbb;
   margin-bottom: 18px;
 }
-
+.msgenvoyes{
+  margin-left:35%;
+}
 /* à changer c'est crado */
 
 .pseudo{
