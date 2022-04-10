@@ -1,3 +1,4 @@
+
 const main = document.querySelector('main')
 
 /** @param {Record<string, string>} data */
@@ -11,8 +12,10 @@ export function appendMessage(data) {
   pseudoSpan.textContent = data.pseudo
   // <span>Hugo</span>
   msgEl.append(pseudoSpan)
-  
-  // SUPPRIMER LES MESSAGES
+
+  // SUPPRESSION ET DIFFERENCIATION DES MESSAGES
+  const verifpseudo = (data.pseudo === localStorage.getItem("pseudo")) ;
+  if (verifpseudo){
   const deleteButton = document.createElement('button');
   msgEl.dataset.id = data.id; 
   deleteButton.onclick = function (){
@@ -23,9 +26,9 @@ export function appendMessage(data) {
   deleteButton.append(deleteImg);
 
   msgEl.append(deleteButton);
-  
-  // DIFFERENCIATION DES MESSAGES
-  if (data.pseudo === localStorage.getItem("pseudo")) msgEl.classList.add("msgenvoyes");
+  msgEl.classList.add("msgenvoyes");
+  }
+
 // DATE DANS UN MESSAGE
 
   const firstdateP = document.createElement('p')
