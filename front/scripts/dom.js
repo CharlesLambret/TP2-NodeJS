@@ -7,27 +7,13 @@ export function appendMessage(data) {
   msgEl.classList.add('message')
   // <div class="message"></div>
 
-  const pseudoSpan = document.createElement('span')
-  pseudoSpan.classList.add('pseudo');
-  pseudoSpan.textContent = data.pseudo
-  // <span>Hugo</span>
-  msgEl.append(pseudoSpan)
+// NOM 
 
-  // SUPPRESSION ET DIFFERENCIATION DES MESSAGES
-  const verifpseudo = (data.pseudo === localStorage.getItem("pseudo")) ;
-  if (verifpseudo){
-  const deleteButton = document.createElement('button');
-  msgEl.dataset.id = data.id; 
-  deleteButton.onclick = function (){
-    msgEl.remove();
-  }
-  const deleteImg = document.createElement('img');
-  deleteImg.src="/img/trashicon.svg"
-  deleteButton.append(deleteImg);
-
-  msgEl.append(deleteButton);
-  msgEl.classList.add("msgenvoyes");
-  }
+const pseudoSpan = document.createElement('span')
+pseudoSpan.classList.add('pseudo');
+pseudoSpan.textContent = data.pseudo
+// <span>Hugo</span>
+msgEl.append(pseudoSpan)
 
 // DATE DANS UN MESSAGE
 
@@ -45,4 +31,22 @@ export function appendMessage(data) {
 
   main?.appendChild(msgEl)
   main?.scrollTo(0, main.scrollHeight)
+
+    // SUPPRESSION ET DIFFERENCIATION DES MESSAGES
+    const verifpseudo = (data.pseudo === localStorage.getItem("pseudo")) ;
+    if (verifpseudo){
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add('deleteButton')
+    msgEl.dataset.id = data.id; 
+    deleteButton.onclick = function (){
+      msgEl.remove();
+    }
+    const deleteImg = document.createElement('img');
+    deleteImg.classList.add('deleteImg')
+    deleteImg.src="/img/trashicon.svg"
+    deleteButton.append(deleteImg);
+  
+    msgEl.append(deleteButton);
+    msgEl.classList.add("msgenvoyes");
+    }
 }
