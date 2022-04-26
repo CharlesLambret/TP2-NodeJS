@@ -56,6 +56,7 @@ main .top-space {
   border-radius: 6px;
   border: solid 1px #bbb;
   margin-bottom: 18px;
+
 }
 .msgenvoyes{
   margin-left:35%;
@@ -63,8 +64,8 @@ main .top-space {
 /* à changer c'est crado */
 
 .pseudo{
- margin-bottom: -22px;
-}
+ font-size: bold !important;
+ }
 
 .message p {
   font-size: large;
@@ -75,10 +76,12 @@ main .top-space {
 }
 
 .date{
-  color : red !important;
+  color : rgb(0, 0, 0) !important;
   font-size: medium !important;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: semi-bold !important;
   display:flex;
-  align-self: center;
+  align-self: left;
 }
 
 /* FORM */
@@ -93,6 +96,7 @@ form#new-message > div {
   gap: 12px;
   margin-bottom: 12px;
   align-items: center;
+
 }
 
 input {
@@ -120,4 +124,20 @@ input[type='submit'] {
 
 .darkmode--activated .logo {
   mix-blend-mode: difference;
+}
+
+.deleteButton{
+  width : 35px;
+  height: 35px;
+  background-color: rgb(35, 13, 72);
+  border-radius: 10px;
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+  margin-top:-35px;
+}
+
+.deleteImg{
+  width : 20px;
+  height: 20px;
 }

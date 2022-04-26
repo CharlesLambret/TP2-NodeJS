@@ -25,17 +25,17 @@ export function initChat() {
     
     const pseudo = messageForm.pseudo.value
     const body = messageForm.body.value
-/** 
+/*
     let errormessages = []
     if (pseudo > 25 || pseudo === null) {
       pseudo.slice(0, 25);
       errormessages.push("Tapez un pseudo valable (entre 1 et 25 caractères).")
     }
-    if (body > 240 || body === null) {
+    if (body > 20 || body === null) {
       body.slice(0, 240);
       errormessages.push("Veuillez rentrer un message compris entre 0 et 240 caractères.")
     }
-*///
+*/
    
     if (!pseudo || !body) return
     localStorage.setItem("pseudo", pseudo)
@@ -60,7 +60,7 @@ const options = {
   buttonColorDark: '#100f2c',  // default: '#100f2c'
   buttonColorLight: '#fff', // default: '#fff'
   saveInCookies: false, // default: true,
-  label: '🌓', // default: ''
+  label: '🌃', // default: ''
   autoMatchOsTheme: true // default: true
 }
 
