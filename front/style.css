@@ -57,11 +57,14 @@ main .top-space {
   border: solid 1px #bbb;
   margin-bottom: 18px;
   word-wrap: break-word;
+  background-color: rgb(207, 217, 222);
 
 }
 .msgenvoyes{
   margin-left:35%;
+  background-color: rgb(29, 155, 240);
 }
+
 /* à changer c'est crado */
 
 .pseudo{
@@ -136,6 +139,7 @@ input[type='submit'] {
   align-self: flex-end;
   align-items: center;
   margin-top:-35px;
+  background-color: red;
 }
 
 .deleteImg{
