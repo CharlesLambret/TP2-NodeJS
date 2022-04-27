@@ -44,23 +44,37 @@ export async function chatRoutes(app) {
   }
 
   // /chat/
-  app.get('/', { websocket: true }, (connection, reply) => {
+
+  app.get('/', { websocket: true }, (connection, req) => {
     connection.socket.on('message', (message) => {
       const data = JSON.parse(message.toString('utf-8'))
+      if (data.pseudo.length > 16 || data.body.length > 200) {
+        connection.socket.send(JSON.stringify({
+          type: 'ERROR',
+          payload: 'pseudo or body too long',
+
+        }))
+        return
+      }
       broadcast({
         type: 'NEW_MESSAGE',
         payload: handleNewMessage(data.pseudo, data.body),
-      })
+        })
+
+
     })
   })
 
-  //history
-/*   app.get('/history', (request, reply) => {
-    reply.send(messages) 
-  })*/
-}
-// secu chat 
 
+
+  //history
+
+
+app.get('/history', (request, reply) => {
+  reply.send(messages.slice(-30))
+})
+// secu chat 
+/*
 
  
 
@@ -87,3 +101,6 @@ if (body > 240 || body === null) {
       errormessages.push("Veuillez rentrer un message compris entre 0 et 240 caractères.")
      
     } 
+*/
+
+}

@@ -56,6 +56,7 @@ main .top-space {
   border-radius: 6px;
   border: solid 1px #bbb;
   margin-bottom: 18px;
+  word-wrap: break-word;
 
 }
 .msgenvoyes{
@@ -140,4 +141,11 @@ input[type='submit'] {
 .deleteImg{
   width : 20px;
   height: 20px;
+}
+.errorMessage {
+  padding: 1rem;
+  margin: 0.7rem;
+  border: 1px solid rgb(181, 181, 181);
+  border-left: 4px solid red;
+  color: red;
 }

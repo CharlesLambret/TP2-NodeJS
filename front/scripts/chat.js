@@ -1,4 +1,5 @@
 import { appendMessage } from './dom'
+import { fetchAPI } from './api'
 
 /** @param {MessageEvent} event */
 function handleWSMessage(event) {
@@ -6,6 +7,17 @@ function handleWSMessage(event) {
 
   if (data?.type === 'NEW_MESSAGE') {
     appendMessage(data.payload)
+  }
+
+  if (data?.type === 'ERROR') {
+    const popup = document.querySelector('.error')
+    const notification = document.createElement('div')
+    notification.classList.add('errorMessage')
+    notification.innerText = 'Votre message ou pseudo est trop long'
+    popup?.appendChild(notification)
+    setTimeout(() => {
+      notification.remove();
+  }, 5000);
   }
 }
 
@@ -42,8 +54,17 @@ export function initChat() {
     ws.send(JSON.stringify({ pseudo, body }))
     messageForm.body.value = null
 
+    
+
   })
 }
+
+async function getHistory() {
+  const messages = await fetchAPI('/chat/history')
+  messages.forEach(appendMessage)
+}
+getHistory()
+
 
 /** Petit bouton Darkmode */
 import Darkmode from 'darkmode-js';
